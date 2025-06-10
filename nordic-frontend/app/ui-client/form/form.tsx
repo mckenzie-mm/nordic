@@ -30,6 +30,7 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
     }, [categoryName]);
 
     const handleSelect: ChangeEventHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        setSelectedPhotos([]);
         setCategoryName(e.target.value);  
     }
    
