@@ -15,9 +15,11 @@ public interface ISeedService
 public class SeedService : ISeedService
 {
     private readonly string _connectionString;
-    public SeedService(string DB_CONNECTION_STRING)
+    private readonly string _templateString;
+    public SeedService(string DB_CONNECTION_STRING, string TEMPLATE_STRING)
     {
         _connectionString = DB_CONNECTION_STRING;
+        _templateString = TEMPLATE_STRING;
     }
 
     public async Task Seed()
@@ -81,7 +83,7 @@ public class SeedService : ISeedService
         try
         {
             var incoming = new List<Category>();
-            using (StreamReader r = new StreamReader("categories.json"))
+            using (StreamReader r = new StreamReader(_templateString + "/" + "categories.json"))
             {
                 string json = r.ReadToEnd();
                 incoming = JsonSerializer.Deserialize<List<Category>>(json);
@@ -123,7 +125,7 @@ public class SeedService : ISeedService
         try
         {
             var incoming = new List<Product>();
-            using (StreamReader r = new StreamReader("products.json"))
+            using (StreamReader r = new StreamReader(_templateString + "/" + "products.json"))
             {
                 string json = r.ReadToEnd();
                 incoming = JsonSerializer.Deserialize<List<Product>>(json);

@@ -4,10 +4,11 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 {
     // Add services to the container.
     var DB_CONNECTION_STRING = builder.Configuration["DB_CONNECTION_STRING"];
+    var TEMPLATE_STRING = builder.Configuration["TEMPLATE_STRING"];
 
     if (DB_CONNECTION_STRING != null)
     {
-        builder.Services.AddSingleton(_ => new SeedService(DB_CONNECTION_STRING));
+        builder.Services.AddSingleton(_ => new SeedService(DB_CONNECTION_STRING, TEMPLATE_STRING));
         builder.Services.AddSingleton(_ => new CategoriesService(DB_CONNECTION_STRING));
         builder.Services.AddSingleton(_ => new ProductsService(DB_CONNECTION_STRING));
     }
