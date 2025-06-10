@@ -40,7 +40,7 @@ export default function Contact() {
                     <h2 className="contact-caption">{MAP_CAPTION}</h2>
                     <div className="map-container">  
                         <div className="map-img-wrap"> 
-                            <img className="map-img" src={MAP_IMG} alt="map image" />
+                            <img className="map-img" src={MAP_IMG} alt="map image" style={{border: "1px solid #eee"}}/>
                         </div> 
                     </div> 
                 </div>

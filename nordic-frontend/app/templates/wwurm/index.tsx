@@ -79,5 +79,7 @@ module.exports = {
   REGISTER: "Anmelden",
   SIGN_OUT: "Abmelden",
   ASPECT_RATIO_IMAGE: .8,
-  IMAGE_SIZE: 500
+  IMAGE_SIZE: 500,
+  IN_STOCK: "Auf Lager",
+  OUT_OF_STOCK: "Nicht Vorrätig"
 }

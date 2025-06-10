@@ -2,7 +2,7 @@ import { BtnNext, BtnPrev } from "@/app/ui/btns";
 import Card from "@/app/ui/card";
 import Link from "next/link";
 
-const { ICON_LIST} = require("@/app/templates");
+const { ICON_LIST, SIMILAR_PRODUCTS, IN_STOCK, OUT_OF_STOCK} = require("@/app/templates");
 import { getProductPageData } from "@/app/actions/products";
 import CartAddWidget from "@/app/ui-client/cart-add-widget";
 import ImageWidget from "@/app/ui-client/image-widget";
@@ -62,7 +62,7 @@ export default async function Product({ params }: {params: Promise<{ slug: strin
                             <p className="product-price">$ {productDTO.price.toFixed(2)}</p>
                             <p className="product-description">{productDTO.description}</p>
                             <div className="product-availability">
-                                {(productDTO.availability > 0) ? "In Stock" : "Out of Stock"}
+                                {(productDTO.availability > 0) ? IN_STOCK : OUT_OF_STOCK}
                             </div>
                             <CartAddWidget productDTO={productDTO}/>
                             <ul className="product-icon" role="list">     
@@ -78,7 +78,7 @@ export default async function Product({ params }: {params: Promise<{ slug: strin
                
             <div className="similar-products">
                 <section className="section">
-                    { productDTO && <h2 className="title-similar-products">Similar Products</h2> }
+                    { productDTO && <h2 className="title-similar-products">{SIMILAR_PRODUCTS}</h2> }
                     <div className="grid-products-similar" style={{marginBottom: "120px"}}>
                     {
                         productsDTO && productsDTO.map((productDTO: IProductDTO, index: Key | null | undefined) => 

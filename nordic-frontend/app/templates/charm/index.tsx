@@ -91,5 +91,7 @@ module.exports = {
   SHIPMENT_PRICE_NATIONAL: "Shipping throughout Australia",
   SIMILAR_PRODUCTS: "Similar Products",
   BUY_NOW: "Buy now",
-  IMAGE_SIZE: 520
+  IMAGE_SIZE: 520,
+  IN_STOCK: "In Stock",
+  OUT_OF_STOCK: "Out of Stock"
 }
