@@ -12,7 +12,7 @@ export default function BtnReset() {
       className='admin-reset-btn'
         onClick={async () => {
           setShowLoading(true)
-          const timer = setTimeout(() => {
+          setTimeout(() => {
               setShowLoading(false);
             }, 1500);
           await reset()

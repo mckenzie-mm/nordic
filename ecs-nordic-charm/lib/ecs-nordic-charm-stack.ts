@@ -4,12 +4,12 @@ import { Construct } from 'constructs';
 import * as ec2 from "aws-cdk-lib/aws-ec2";
 import * as ecs from "aws-cdk-lib/aws-ecs";
 
-export class EcsNordicCdkStack extends cdk.Stack {
+export class EcsNordicCharmStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-  // add VPC (Virtual Private Cloud)
-    const vpc = new cdk.aws_ec2.Vpc(this, "vpc-wwurm", {
+    // add VPC (Virtual Private Cloud)
+    const vpc = new cdk.aws_ec2.Vpc(this, "vpc-charm", {
       ipAddresses: cdk.aws_ec2.IpAddresses.cidr(
         cdk.aws_ec2.Vpc.DEFAULT_CIDR_RANGE
       ),
@@ -21,7 +21,7 @@ export class EcsNordicCdkStack extends cdk.Stack {
       subnetConfiguration: [
         {
           cidrMask: 16,
-          name: 'ecsWithEc2-mark-wwum',
+          name: 'ecsWithEc2-mark-charm',
           subnetType: cdk.aws_ec2.SubnetType.PUBLIC,
         },
       ],
@@ -35,7 +35,7 @@ export class EcsNordicCdkStack extends cdk.Stack {
 
     // Create EC2 cluster instance
      const cluster = new cdk.aws_ecs.Cluster(this, "cluster", {
-      clusterName: 'ecsWithEc2Cluster-mark-wwurm',
+      clusterName: 'ecsWithEc2Cluster-mark-charm',
       vpc: vpc,
       capacity: {
         instanceType: cdk.aws_ec2.InstanceType.of(
@@ -53,7 +53,7 @@ export class EcsNordicCdkStack extends cdk.Stack {
     });
 
     const webapi = taskDefinition.addContainer('webapi', { //case sensitive - the name must be in lower case letters to work
-      image: ecs.ContainerImage.fromRegistry("snapdragonxc/dotnet-wwurm"),
+      image: ecs.ContainerImage.fromRegistry("snapdragonxc/dotnet-charm"),
       memoryLimitMiB: 512,
     });
 
@@ -64,7 +64,7 @@ export class EcsNordicCdkStack extends cdk.Stack {
     });
 
     const appContainer = taskDefinition.addContainer('AppContainer', {
-      image: ecs.ContainerImage.fromRegistry("snapdragonxc/app-wwurm"),
+      image: ecs.ContainerImage.fromRegistry("snapdragonxc/app-charm-2"),
       memoryLimitMiB: 512,
     });
 
@@ -77,7 +77,7 @@ export class EcsNordicCdkStack extends cdk.Stack {
     appContainer.addLink(webapi); 
 
     // Instantiate an Amazon ECS Service
-    const ecsService = new ecs.Ec2Service(this, 'Service-wwurm', {
+    const ecsService = new ecs.Ec2Service(this, 'Service-charm', {
       cluster,
       taskDefinition
     });

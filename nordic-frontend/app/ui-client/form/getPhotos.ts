@@ -1,4 +1,4 @@
-const { AWS_BUCKET_NAME, AWS_REGION } = require('../../templates');
+const { AWS_BUCKET_NAME, AWS_REGION, IDENTITY_POOL_ID } = require('../../templates');
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; 
 import {
     S3Client,
@@ -8,8 +8,8 @@ import {
 const client = new S3Client({
     region:AWS_REGION,
     credentials: fromCognitoIdentityPool({
-        // identityPoolId: "eu-west-2:95647da0-9c5e-46aa-b3bc-28d82e38d901"
-        identityPoolId: "ap-southeast-2:53679394-0ab1-43f4-b714-58b62d36e2dd"
+        // identityPoolId: "eu-west-2:95647da0-9c5e-46aa-b3bc-28d82e38d901" - UK
+        identityPoolId: IDENTITY_POOL_ID
     })
 });
 

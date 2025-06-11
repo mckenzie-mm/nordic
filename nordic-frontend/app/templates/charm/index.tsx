@@ -93,5 +93,7 @@ module.exports = {
   BUY_NOW: "Buy now",
   IMAGE_SIZE: 520,
   IN_STOCK: "In Stock",
-  OUT_OF_STOCK: "Out of Stock"
+  OUT_OF_STOCK: "Out of Stock",
+    IDENTITY_POOL_ID: "ap-southeast-2:53679394-0ab1-43f4-b714-58b62d36e2dd"
+
 }

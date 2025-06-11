@@ -1,11 +1,11 @@
-import { APP_TEMPLATE } from "../config";
+// import { APP_TEMPLATE } from "../config";
 
-const charm = require("./charm");
-const wwurm = require("./wwurm");
+// const charm = require("./charm");
+const wwurm = require("./charm");
 
-if (APP_TEMPLATE === "CHARM" ) {
-  module.exports = charm
-} else {
+// if (APP_TEMPLATE === "CHARM" ) {
+//   module.exports = charm
+// } else {
   module.exports = wwurm;
-}
+// }
 

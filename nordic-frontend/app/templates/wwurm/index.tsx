@@ -30,9 +30,9 @@ module.exports = {
   DELIVERY_CAPTION: "", 
   PAYMENT_CAPTION: "", 
   EXCHANGE_CAPTION: "",
-  DELIVERY: "",
-  PAYMENT: "",
-  EXCHANGE: "", 
+  DELIVERY: [""],
+  PAYMENT: [""],
+  EXCHANGE: [""],
   COPYRIGHT: "", 
   PRODUCTS_NAV_NAME: "Produkte",
   PRODUCTS_NAV_FIRST_NAME: "All Produkte",
@@ -81,5 +81,6 @@ module.exports = {
   ASPECT_RATIO_IMAGE: .8,
   IMAGE_SIZE: 500,
   IN_STOCK: "Auf Lager",
-  OUT_OF_STOCK: "Nicht Vorrätig"
+  OUT_OF_STOCK: "Nicht Vorrätig",
+  IDENTITY_POOL_ID: "ap-southeast-2:1e2b4df4-a318-4cd2-9c19-753c83be052b"
 }
