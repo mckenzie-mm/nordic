@@ -64,7 +64,7 @@ export class EcsNordicCharmStack extends cdk.Stack {
     });
 
     const appContainer = taskDefinition.addContainer('AppContainer', {
-      image: ecs.ContainerImage.fromRegistry("snapdragonxc/app-charm-2"),
+      image: ecs.ContainerImage.fromRegistry("snapdragonxc/app-charm-3"),
       memoryLimitMiB: 512,
     });
 
